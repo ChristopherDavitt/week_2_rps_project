@@ -2,15 +2,17 @@ from random import randint
 import time 
 
 def rps():
+    leader_list = []
+    full_leader_list = {}
     player_score_dict= {}
     while True:
         computer_list = ['rock', 'paper', 'scissors']
-        
         name = input("What is your name? or 'exit': ")
         if name.lower() == 'exit':
             break
         elif name.lower() not in player_score_dict:
             player_num = name.lower()
+            leader_list.append(player_num)
             name_dict = {name:0, "Computer":0}
             player_score_dict[player_num]= name_dict
             print(f"Welcome {name.title()} to Rock, Paper, Scissors Python Edition")
@@ -31,7 +33,14 @@ def rps():
                         Paper beats Rock")
                 continue
             elif option.lower() == 'leaderboard':
-                print(f"")
+                print(f"Leaderboard:")
+                for leader in leader_list:
+                    if (player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]) != 0:
+                        player_winrate = (player_score_dict[leader][leader]/((player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]))*100)
+                        print(f"{leader.title()} : {int(player_winrate)} %")
+                    else:
+                        print(f"{leader.title()} : N/A")
+                continue
             elif option.lower() == 'play':
                 print(f"The score is {name} {player_score_dict[player_num][name]} : Computer {player_score_dict[player_num]['Computer']} ")
                 while True:
