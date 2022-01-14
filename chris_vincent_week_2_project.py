@@ -32,7 +32,7 @@ def rps():
             elif option.lower() == 'leaderboard':
                 print(f"Leaderboard:")
                 for leader in leader_list:
-                    if (player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]) != 0:
+                    if (player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]) >= 0:
                         player_winrate = (player_score_dict[leader][leader]/((player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]))*100)
                         print(f"{leader} : {int(player_winrate)} %")
                     else:
