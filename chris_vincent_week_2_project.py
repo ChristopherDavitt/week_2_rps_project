@@ -1,23 +1,28 @@
 from random import randint 
-import module
+import time 
 
-
-
-def rps(p1, p2):
+def rps():
     player_score_dict= {}
     while True:
+        computer_list = ['rock', 'paper', 'scissors']
         
-        name = input("What is your name?: ")
-        if name.lower() not in player_score_dict:
-            player_num = name
+        name = input("What is your name? or 'exit': ")
+        if name.lower() == 'exit':
+            break
+        elif name.lower() not in player_score_dict:
+            player_num = name.lower()
             name_dict = {name:0, "Computer":0}
             player_score_dict[player_num]= name_dict
-        print(f"Welcome {name} to Rock, Paper, Scissors Python Edition")
+            print(f"Welcome {name.title()} to Rock, Paper, Scissors Python Edition")
+        else:
+            print(f"Welcome back {name.title()} to Rock, Paper, Scissors Python Edition")
+        
         while True:
             option = input("Select one of the following\
                 [Rules]\
                 [Play]\
-                [Quit]")
+                [Leaderboard]\
+                [Quit]: ")
             if option.lower() == 'rules':
                 print("The rules are simple... select either rock, paper, or scissors\
                         and play against the world's best computer.\
@@ -25,23 +30,53 @@ def rps(p1, p2):
                         Scissors beats Paper\
                         Paper beats Rock")
                 continue
+            elif option.lower() == 'leaderboard':
+                print(f"")
             elif option.lower() == 'play':
+                print(f"The score is {name} {player_score_dict[player_num][name]} : Computer {player_score_dict[player_num]['Computer']} ")
                 while True:
-                    select = input("Choose either rock, paper, scissors or cancel[c] to return to the main menu ")
-                    if select.lower() == 'rock':
-                        result(select)
-                    elif select.lower() == 'paper':
-                        result(select)
-                    elif select.lower() == 'scissors':
-                        result(select)
-                    elif select.lower() == 'c':
+                    select = input("Choose either rock, paper, scissors or cancel[c] to return to the main menu: ")
+                    computer_choice = computer_list[randint(0,2)]
+                    
+                    if (select.lower() == 'rock') or (select.lower() == 'paper') or (select.lower() == 'scissors'):
+                        time.sleep(.7)
+                        print("rock..")
+                        time.sleep(.7)
+                        print("paper..")
+                        time.sleep(.7)
+                        print("scissors..")
+                        time.sleep(.7)
+                        print("SHOOT!")
+                        if select.lower() == computer_choice:
+                            print("Draw")
+                    
+                        elif (select.lower() == "rock" and computer_choice == "scissors") or (select.lower() == "scissors" and computer_choice == "paper") or (select.lower() == "paper" and computer_choice == "rock"):
+                            print("You Win!")
+                            player_score_dict[player_num][name] += 1
+                            
+                        else:
+                            print("You lose")
+                            player_score_dict[player_num]["Computer"] += 1
+                            
+                        print(f"The score is {name} {player_score_dict[player_num][name]} : Computer {player_score_dict[player_num]['Computer']} ")
                         continue
+                    elif (select.lower() == 'c') or (select.lower() == 'cancel'):
+                        print("Hope you enjoyed playing!")
+                        break
                     else:
                         print("huh... lets try this again")
+                        continue
+            
+            elif option.lower() == 'quit':
+                print(f"Bye {name}!")
+                break
+            else:
+                print("huh... lets try this again")
+                continue
             
 
     
 
-rps("name","name")
+rps()
 
     
