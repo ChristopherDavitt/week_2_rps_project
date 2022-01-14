@@ -33,9 +33,9 @@ def rps():
                     if (player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]) != 0:
                         player_winrate = (player_score_dict[leader][leader]/((player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]))*100)
                         print(f"{leader.title()} : {int(player_winrate)} %")
+                        print("===========")
                     else:
                         print(f"{leader.title()} : N/A")
-                time.sleep(2)
                 continue
             elif option.lower() == 'play':
                 print(f"The score is {name.title()} {player_score_dict[player_num][name]} : Computer {player_score_dict[player_num]['Computer']} ")
@@ -43,13 +43,13 @@ def rps():
                     select = input("Choose either rock, paper, scissors or cancel[c] to return to the main menu: ")
                     computer_choice = computer_list[randint(0,2)]
                     if (select.lower() == 'rock') or (select.lower() == 'paper') or (select.lower() == 'scissors'):
-                        time.sleep(.5)
+                        time.sleep(.7)
                         print("rock..")
-                        time.sleep(.5)
+                        time.sleep(.7)
                         print("paper..")
-                        time.sleep(.5)
+                        time.sleep(.7)
                         print("scissors..")
-                        time.sleep(.5)
+                        time.sleep(.7)
                         print("SHOOT!")
                         if select.lower() == computer_choice:
                             print(f"Computer plays {computer_choice}\nDraw")
@@ -74,7 +74,3 @@ def rps():
                 print("huh... lets try this again")
                 continue
             
-
-rps()
-
-    
