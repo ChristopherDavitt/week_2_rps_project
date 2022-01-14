@@ -34,9 +34,9 @@ def rps():
                 for leader in leader_list:
                     if (player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]) != 0:
                         player_winrate = (player_score_dict[leader][leader]/((player_score_dict[leader][leader]+player_score_dict[leader]["Computer"]))*100)
-                        print(f"{leader.title()} : {int(player_winrate)} %")
+                        print(f"{leader} : {int(player_winrate)} %")
                     else:
-                        print(f"{leader.title()} : N/A")
+                        print(f"{leader} : N/A")
                 continue
             elif option.lower() == 'play':
                 print(f"The score is {name} {player_score_dict[player_num][name]} : Computer {player_score_dict[player_num]['Computer']} ")
