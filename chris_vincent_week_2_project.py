@@ -7,7 +7,7 @@ def rps():
     player_score_dict= {}
     while True:
         computer_list = ['rock', 'paper', 'scissors']
-        name = input("What is your name? or 'exit': ")
+        name = input("What is your name? or 'exit': ").lower()
         if name.lower() == 'exit':
             break
         elif name.lower() not in player_score_dict:
@@ -20,11 +20,8 @@ def rps():
             print(f"Welcome back {name.title()} to Rock, Paper, Scissors Python Edition")
         
         while True:
-            print("Select one of the following: ")
-            print("[Rules]")
-            print("[Play]")
-            print("[Leaderboard]")
-            print("[Quit]")
+            print("~~~~~~~~~~/nSelect one of the following: ")
+            print("[Rules]/n[Play]/n[Leaderboard]/n[Quit]")
             option = input()
             if option.lower() == 'rules':
                 print("The rules are simple... select either rock, paper, or scissors\nand play against the world's best computer.\nRock beats Scissors\nScissors beats Paper\nPaper beats Rock")
