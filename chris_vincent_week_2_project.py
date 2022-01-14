@@ -27,11 +27,7 @@ def rps():
             print("[Quit]")
             option = input()
             if option.lower() == 'rules':
-                print("The rules are simple... select either rock, paper, or scissors\
-                        and play against the world's best computer.\
-                        Rock beats Scissors\
-                        Scissors beats Paper\
-                        Paper beats Rock")
+                print("The rules are simple... select either rock, paper, or scissors\nand play against the world's best computer.\nRock beats Scissors\nScissors beats Paper\nPaper beats Rock")
                 continue
             elif option.lower() == 'leaderboard':
                 print(f"Leaderboard:")
