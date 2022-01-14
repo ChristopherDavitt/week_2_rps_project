@@ -20,11 +20,12 @@ def rps():
             print(f"Welcome back {name.title()} to Rock, Paper, Scissors Python Edition")
         
         while True:
-            option = input("Select one of the following\
-                [Rules]\
-                [Play]\
-                [Leaderboard]\
-                [Quit]: ")
+            print("Select one of the following: ")
+            print("[Rules]")
+            print("[Play]")
+            print("[Leaderboard]")
+            print("[Quit]")
+            option = input()
             if option.lower() == 'rules':
                 print("The rules are simple... select either rock, paper, or scissors\
                         and play against the world's best computer.\
